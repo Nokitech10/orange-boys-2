@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Football Platform</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a href="#admin" class="admin-corner-link" aria-label="Admin area">A</a>
+  <header class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 id="club-name">Your Football Club</h1>
+      <p id="club-tagline">Official hub for news, fixtures, results & squad.</p>
+      <a href="#news" class="btn-primary">View Latest News</a>
+    </div>
+  </header>
+
+  <nav class="nav">
+    <a href="#news">News</a>
+    <a href="#matches">Matches</a>
+    <a href="#training">Training</a>
+    <a href="#coaches">Coaches</a>
+    <a href="#players">Players</a>
+    <a href="#media">Media</a>
+    <a href="#sponsors">Sponsors</a>
+    <a href="#social">Social</a>
+  </nav>
+
+  <main>
+    <section id="news" class="section">
+      <h2>Latest News</h2>
+      <p>Stay updated with club announcements, transfer stories and post‑match reports.</p>
+
+      <div class="cards">
+        <article class="card toggle-card" id="news-toggle-card">
+          <div class="toggle-text">
+            <h3>View latest club news</h3>
+            <p>Tap this card to expand and read the most recent headlines.</p>
+          </div>
+          <div class="toggle-icon" aria-hidden="true">▼</div>
+        </article>
+      </div>
+
+      <div class="section-panel" id="news-panel">
+        <div class="cards" id="news-list">
+          <!-- News articles are injected from script.js -->
+        </div>
+      </div>
+    </section>
+
+    <section id="matches" class="section section-alt">
+      <h2>Matches</h2>
+      <p>Check the next fixtures and browse the latest results in one place.</p>
+
+      <div class="cards">
+        <article class="card toggle-card" id="matches-toggle-card">
+          <div class="toggle-text">
+            <h3>View fixtures & results</h3>
+            <p>Tap this card to see all upcoming matches and recent scores.</p>
+          </div>
+          <div class="toggle-icon" aria-hidden="true">▼</div>
+        </article>
+      </div>
+
+      <div class="section-panel" id="matches-panel">
+        <div class="matches-layout">
+          <section aria-labelledby="upcoming-heading" class="matches-column">
+            <h3 id="upcoming-heading" class="subheading">Upcoming Matches</h3>
+            <div class="cards" id="upcoming-matches">
+              <!-- Upcoming matches injected from script.js -->
+            </div>
+          </section>
+
+          <section aria-labelledby="results-heading" class="matches-column">
+            <h3 id="results-heading" class="subheading">Match Results</h3>
+            <div class="cards" id="match-results">
+              <!-- Match results injected from script.js -->
+            </div>
+          </section>
+        </div>
+
+        <section class="season-calendar-section">
+          <h3 class="subheading">Season calendar</h3>
+          <p class="season-calendar-copy">
+            Overview of fixtures and results across the season.
+          </p>
+          <div class="season-calendar" id="season-calendar"></div>
+        </section>
+
+        <section class="league-table-section">
+          <h3 class="subheading">League table &amp; stats</h3>
+          <div class="cards" id="league-table">
+            <!-- League table injected from script.js -->
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section id="training" class="section section-alt">
+      <h2>Training &amp; Events</h2>
+      <p>Upcoming training sessions and club events for the squad.</p>
+
+      <div class="cards">
+        <article class="card toggle-card" id="training-toggle-card">
+          <div class="toggle-text">
+            <h3>View training &amp; events</h3>
+            <p>Tap this card to see the latest training sessions and club events.</p>
+          </div>
+          <div class="toggle-icon" aria-hidden="true">▼</div>
+        </article>
+      </div>
+
+      <div class="section-panel" id="training-panel">
+        <div class="cards" id="training-events-grid">
+          <!-- Training & events injected from script.js -->
+        </div>
+      </div>
+    </section>
+
+    <section id="coaches" class="section section-alt">
+      <h2>Coaching Staff</h2>
+      <p>Up to three key members of the coaching team.</p>
+
+      <div class="cards">
+        <article class="card toggle-card" id="coaches-toggle-card">
+          <div class="toggle-text">
+            <h3>View coaching staff</h3>
+            <p>Tap this card to see the head coach and assistants.</p>
+          </div>
+          <div class="toggle-icon" aria-hidden="true">▼</div>
+        </article>
+      </div>
+
+      <div class="section-panel" id="coaches-panel">
+        <div class="cards coaches-grid" id="coaches-grid">
+          <!-- Coaches injected from script.js (max 3) -->
+        </div>
+      </div>
+    </section>
+
+    <section id="players" class="section">
+      <h2>First Team Squad</h2>
+      <p>Meet the 25‑man squad, including their positions, profiles and preferred foot.</p>
+
+      <div class="cards">
+        <article class="card toggle-card" id="squad-toggle-card">
+          <div class="toggle-text">
+            <h3>View first team squad</h3>
+            <p>Tap this card to expand and see all 25 players.</p>
+          </div>
+          <div class="toggle-icon" aria-hidden="true">▼</div>
+        </article>
+      </div>
+
+      <div class="players-panel" id="players-panel">
+        <div class="cards players-grid" id="players-grid">
+          <!-- 25 player cards injected from script.js -->
+        </div>
+      </div>
+    </section>
+
+    <section class="section ad-section">
+      <div class="ad-slot" id="ad-inline-players">
+        <!-- Google AdSense code for an inline ad next to the squad can be placed here -->
+      </div>
+    </section>
+
+    <section id="media" class="section section-alt">
+      <h2>Team Media</h2>
+      <p>Photos and videos shared from training, matchdays and behind the scenes.</p>
+
+      <div class="cards" id="media-grid">
+        <!-- Media items injected from script.js -->
+      </div>
+    </section>
+
+    <section class="section ad-section">
+      <div class="ad-slot" id="ad-inline-players-media">
+        <!-- Google AdSense code for inline ad can be placed here -->
+      </div>
+    </section>
+
+    <section id="sponsors" class="section">
+      <h2>Club Sponsors</h2>
+      <p>Key partners and sponsors that support the team on and off the pitch.</p>
+
+      <div class="cards">
+        <article class="card toggle-card" id="sponsors-toggle-card">
+          <div class="toggle-text">
+            <h3>View sponsors</h3>
+            <p>Tap this card to see the organisations backing the club.</p>
+          </div>
+          <div class="toggle-icon" aria-hidden="true">▼</div>
+        </article>
+      </div>
+
+      <div class="section-panel" id="sponsors-panel">
+        <div class="cards sponsors-grid" id="sponsors-grid">
+          <!-- Sponsors injected from script.js -->
+        </div>
+      </div>
+    </section>
+
+    <section id="social" class="section section-alt">
+      <h2>Follow the Team</h2>
+      <p>Official social media channels where supporters can follow updates and content.</p>
+
+      <div class="cards">
+        <article class="card toggle-card" id="social-toggle-card">
+          <div class="toggle-text">
+            <h3>View social channels</h3>
+            <p>Tap this card to see links to the club’s social media platforms.</p>
+          </div>
+          <div class="toggle-icon" aria-hidden="true">▼</div>
+        </article>
+      </div>
+
+      <div class="section-panel" id="social-panel">
+        <div class="cards social-grid" id="social-links-grid">
+          <!-- Social links injected from script.js -->
+        </div>
+      </div>
+    </section>
+
+    <section class="section ad-section ad-section-bottom">
+      <div class="ad-slot" id="ad-bottom-main">
+        <!-- Google AdSense code for bottom page ad can be placed here -->
+      </div>
+    </section>
+
+    <section id="admin" class="section">
+      <h2>Admin Area</h2>
+      <p>Restricted section for the club administrator only.</p>
+
+      <div class="cards">
+        <article class="card admin-card" id="admin-login-card">
+          <h3>Admin sign in</h3>
+          <p class="admin-copy">
+            Only the site admin with valid credentials can access this area.
+          </p>
+          <form id="admin-login-form">
+            <div class="form-row">
+              <label for="admin-username">Username</label>
+              <input type="text" id="admin-username" autocomplete="username" required />
+            </div>
+            <div class="form-row">
+              <label for="admin-password">Password</label>
+              <input type="password" id="admin-password" autocomplete="current-password" required />
+            </div>
+            <button type="submit" class="btn-primary admin-btn">Sign in</button>
+            <p class="admin-hint">Ask the club owner for your login details.</p>
+            <p class="admin-error" id="admin-error"></p>
+          </form>
+        </article>
+
+        <article class="card admin-panel" id="admin-panel" hidden>
+          <h3>Admin dashboard</h3>
+          <p>Manage what appears on the main site and update your login.</p>
+
+          <div class="admin-sections">
+            <section class="admin-section">
+              <article class="card toggle-card" id="admin-identity-toggle">
+                <div class="toggle-text">
+                  <h3>Club identity</h3>
+                  <p>Change the club name and tagline shown at the top of the site.</p>
+                </div>
+                <div class="toggle-icon" aria-hidden="true">▼</div>
+              </article>
+              <div class="admin-panel-section" id="admin-identity-panel">
+                <h4>Club identity</h4>
+                <p class="admin-hint">
+                  Update the club name and short line of text that appear over the main background image.
+                </p>
+                <form id="admin-identity-form">
+                  <div class="form-row">
+                    <label for="admin-club-name">Club name</label>
+                    <input type="text" id="admin-club-name" placeholder="e.g. Northside United FC" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-club-tagline">Tagline</label>
+                    <input
+                      type="text"
+                      id="admin-club-tagline"
+                      placeholder="e.g. Official hub for news, fixtures &amp; results."
+                    />
+                  </div>
+                  <button type="submit" class="btn-primary admin-btn">Update club identity</button>
+                </form>
+              </div>
+            </section>
+
+            <section class="admin-section">
+              <article class="card toggle-card" id="admin-news-toggle">
+                <div class="toggle-text">
+                  <h3>Latest news</h3>
+                  <p>Add or remove news stories that appear on the News section.</p>
+                </div>
+                <div class="toggle-icon" aria-hidden="true">▼</div>
+              </article>
+              <div class="admin-panel-section" id="admin-news-panel">
+                <h4>Latest news</h4>
+                <form id="admin-news-form">
+                  <div class="form-row">
+                    <label for="admin-news-title">Headline</label>
+                    <input type="text" id="admin-news-title" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-news-summary">Summary</label>
+                    <input type="text" id="admin-news-summary" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-news-image">News image (optional)</label>
+                    <input type="file" id="admin-news-image" accept="image/*" />
+                  </div>
+                  <button type="submit" class="btn-primary admin-btn">Add news item</button>
+                </form>
+                <ul class="admin-list" id="admin-news-list"></ul>
+              </div>
+            </section>
+
+            <section class="admin-section">
+              <article class="card toggle-card" id="admin-stats-toggle">
+                <div class="toggle-text">
+                  <h3>Team stats &amp; table</h3>
+                  <p>Maintain the league table and basic stats for your team.</p>
+                </div>
+                <div class="toggle-icon" aria-hidden="true">▼</div>
+              </article>
+              <div class="admin-panel-section" id="admin-stats-panel">
+                <h4>League table</h4>
+                <p class="admin-hint">
+                  Add each team with their played games, results and points. You can remove teams at any time.
+                </p>
+                <form id="admin-stats-form">
+                  <div class="form-row">
+                    <label for="admin-stats-team">Team name</label>
+                    <input type="text" id="admin-stats-team" placeholder="e.g. Your FC" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-stats-played">Played</label>
+                    <input type="number" id="admin-stats-played" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-stats-won">Won</label>
+                    <input type="number" id="admin-stats-won" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-stats-drawn">Drawn</label>
+                    <input type="number" id="admin-stats-drawn" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-stats-lost">Lost</label>
+                    <input type="number" id="admin-stats-lost" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-stats-gf">Goals for</label>
+                    <input type="number" id="admin-stats-gf" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-stats-ga">Goals against</label>
+                    <input type="number" id="admin-stats-ga" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-stats-points">Points</label>
+                    <input type="number" id="admin-stats-points" />
+                  </div>
+                  <button type="submit" class="btn-primary admin-btn">Add team to table</button>
+                </form>
+                <ul class="admin-list" id="admin-stats-list"></ul>
+              </div>
+            </section>
+
+            <section class="admin-section">
+              <article class="card toggle-card" id="admin-matches-toggle">
+                <div class="toggle-text">
+                  <h3>Matches &amp; results</h3>
+                  <p>Control upcoming fixtures and final scores for recent matches.</p>
+                </div>
+                <div class="toggle-icon" aria-hidden="true">▼</div>
+              </article>
+              <div class="admin-panel-section" id="admin-matches-panel">
+                <h4>Matches</h4>
+                <h5>Upcoming fixtures</h5>
+                <form id="admin-upcoming-form">
+                  <div class="form-row">
+                    <label for="admin-upcoming-home">Home team</label>
+                    <input type="text" id="admin-upcoming-home" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-upcoming-away">Away team</label>
+                    <input type="text" id="admin-upcoming-away" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-upcoming-date">Date / time</label>
+                    <input type="text" id="admin-upcoming-date" placeholder="e.g. Sat 12 Mar, 3:00 PM" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-upcoming-venue">Venue</label>
+                    <input type="text" id="admin-upcoming-venue" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-upcoming-competition">Competition</label>
+                    <input type="text" id="admin-upcoming-competition" />
+                  </div>
+                  <button type="submit" class="btn-primary admin-btn">Add upcoming match</button>
+                </form>
+                <ul class="admin-list" id="admin-upcoming-list"></ul>
+
+                <h5>Match results</h5>
+                <form id="admin-result-form">
+                  <div class="form-row">
+                    <label for="admin-result-home">Home team</label>
+                    <input type="text" id="admin-result-home" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-result-away">Away team</label>
+                    <input type="text" id="admin-result-away" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-result-home-score">Home score</label>
+                    <input type="number" id="admin-result-home-score" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-result-away-score">Away score</label>
+                    <input type="number" id="admin-result-away-score" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-result-date">Date</label>
+                    <input type="text" id="admin-result-date" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-result-competition">Competition</label>
+                    <input type="text" id="admin-result-competition" />
+                  </div>
+                  <button type="submit" class="btn-primary admin-btn">Add result</button>
+                </form>
+                <ul class="admin-list" id="admin-result-list"></ul>
+              </div>
+            </section>
+
+            <section class="admin-section">
+              <article class="card toggle-card" id="admin-players-toggle">
+                <div class="toggle-text">
+                  <h3>First team squad</h3>
+                  <p>Edit player details, numbers and photos for the squad section.</p>
+                </div>
+                <div class="toggle-icon" aria-hidden="true">▼</div>
+              </article>
+              <div class="admin-panel-section" id="admin-players-panel">
+                <h4>First team squad</h4>
+                <p class="admin-hint">Select a player, then edit details or upload a photo.</p>
+                <div class="form-row">
+                  <label for="admin-player-select">Choose player</label>
+                  <select id="admin-player-select"></select>
+                </div>
+                <div class="form-row">
+                  <label for="admin-player-number">Squad number</label>
+                  <input type="number" id="admin-player-number" />
+                </div>
+                <div class="form-row">
+                  <label for="admin-player-name">Name</label>
+                  <input type="text" id="admin-player-name" />
+                </div>
+                <div class="form-row">
+                  <label for="admin-player-age">Age</label>
+                  <input type="number" id="admin-player-age" />
+                </div>
+                <div class="form-row">
+                  <label for="admin-player-nationality">Nationality</label>
+                  <input type="text" id="admin-player-nationality" />
+                </div>
+                <div class="form-row">
+                  <label for="admin-player-position">Position</label>
+                  <input type="text" id="admin-player-position" />
+                </div>
+                <div class="form-row">
+                  <label for="admin-player-foot">Favourite foot</label>
+                  <input type="text" id="admin-player-foot" placeholder="Right / Left" />
+                </div>
+                <div class="form-row">
+                  <label for="admin-player-image">Player photo (optional)</label>
+                  <input type="file" id="admin-player-image" accept="image/*" />
+                </div>
+                <div class="admin-player-actions">
+                  <button type="button" class="btn-primary admin-btn" id="admin-player-save">Save player</button>
+                  <button type="button" class="admin-secondary-btn" id="admin-player-add">Add new player</button>
+                  <button type="button" class="admin-danger-btn" id="admin-player-delete">Delete player</button>
+                </div>
+              </div>
+            </section>
+
+            <section class="admin-section">
+              <article class="card toggle-card" id="admin-sponsors-toggle">
+                <div class="toggle-text">
+                  <h3>Club sponsors</h3>
+                  <p>Add sponsor logos and short descriptions for the Sponsors section.</p>
+                </div>
+                <div class="toggle-icon" aria-hidden="true">▼</div>
+              </article>
+              <div class="admin-panel-section" id="admin-sponsors-panel">
+                <h4>Club sponsors</h4>
+                <p class="admin-hint">
+                  Upload a badge or logo for each sponsor and write a short line about their support.
+                </p>
+                <form id="admin-sponsor-form">
+                  <div class="form-row">
+                    <label for="admin-sponsor-name">Sponsor name</label>
+                    <input type="text" id="admin-sponsor-name" placeholder="e.g. Main Shirt Sponsor" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-sponsor-description">Short description</label>
+                    <input type="text" id="admin-sponsor-description" placeholder="One line about this sponsor" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-sponsor-website">Website (optional)</label>
+                    <input type="text" id="admin-sponsor-website" placeholder="https://example.com" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-sponsor-logo">Badge / logo (optional)</label>
+                    <input type="file" id="admin-sponsor-logo" accept="image/*" />
+                  </div>
+                  <button type="submit" class="btn-primary admin-btn">Add sponsor</button>
+                </form>
+                <ul class="admin-list" id="admin-sponsors-list"></ul>
+              </div>
+            </section>
+
+            <section class="admin-section">
+              <article class="card toggle-card" id="admin-coaches-toggle">
+                <div class="toggle-text">
+                  <h3>Coaching staff</h3>
+                  <p>Add or update coaches who appear in the Coaching Staff section.</p>
+                </div>
+                <div class="toggle-icon" aria-hidden="true">▼</div>
+              </article>
+              <div class="admin-panel-section" id="admin-coaches-panel">
+                <h4>Coaching staff</h4>
+                <form id="admin-coach-form">
+                  <div class="form-row">
+                    <label for="admin-coach-role">Role</label>
+                    <input type="text" id="admin-coach-role" placeholder="Head Coach, Assistant..." />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-coach-name">Name</label>
+                    <input type="text" id="admin-coach-name" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-coach-age">Age</label>
+                    <input type="number" id="admin-coach-age" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-coach-nationality">Nationality</label>
+                    <input type="text" id="admin-coach-nationality" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-coach-philosophy">Philosophy</label>
+                    <input type="text" id="admin-coach-philosophy" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-coach-image">Coach photo (optional)</label>
+                    <input type="file" id="admin-coach-image" accept="image/*" />
+                  </div>
+                  <button type="submit" class="btn-primary admin-btn">Add coach</button>
+                </form>
+                <ul class="admin-list" id="admin-coach-list"></ul>
+              </div>
+            </section>
+
+            <section class="admin-section">
+              <article class="card toggle-card" id="admin-social-toggle">
+                <div class="toggle-text">
+                  <h3>Social media links</h3>
+                  <p>Manage the official social media accounts shown in the Follow the Team section.</p>
+                </div>
+                <div class="toggle-icon" aria-hidden="true">▼</div>
+              </article>
+              <div class="admin-panel-section" id="admin-social-panel">
+                <h4>Social media links</h4>
+                <p class="admin-hint">
+                  Add each platform with a link and an optional short label so fans know where to follow the club.
+                </p>
+                <form id="admin-social-form">
+                  <div class="form-row">
+                    <label for="admin-social-platform">Platform</label>
+                    <input type="text" id="admin-social-platform" placeholder="e.g. Twitter, Facebook" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-social-url">Profile URL</label>
+                    <input type="text" id="admin-social-url" placeholder="https://…" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-social-label">Short label (optional)</label>
+                    <input type="text" id="admin-social-label" placeholder="e.g. Follow us on Twitter" />
+                  </div>
+                  <button type="submit" class="btn-primary admin-btn">Add social link</button>
+                </form>
+                <ul class="admin-list" id="admin-social-list"></ul>
+              </div>
+            </section>
+
+            <section class="admin-section">
+              <article class="card toggle-card" id="admin-media-toggle">
+                <div class="toggle-text">
+                  <h3>Team media</h3>
+                  <p>Upload photos or videos of the team for the Media section.</p>
+                </div>
+                <div class="toggle-icon" aria-hidden="true">▼</div>
+              </article>
+              <div class="admin-panel-section" id="admin-media-panel">
+                <h4>Team media</h4>
+                <p class="admin-hint">Upload photos or short videos of the team to show in the Media section.</p>
+                <form id="admin-media-form">
+                  <div class="form-row">
+                    <label for="admin-media-title">Title / caption</label>
+                    <input type="text" id="admin-media-title" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-media-type">Type</label>
+                    <select id="admin-media-type">
+                      <option value="image">Image</option>
+                      <option value="video">Video</option>
+                    </select>
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-media-file">File</label>
+                    <input type="file" id="admin-media-file" accept="image/*,video/*" />
+                  </div>
+                  <button type="submit" class="btn-primary admin-btn">Add media item</button>
+                </form>
+                <ul class="admin-list" id="admin-media-list"></ul>
+              </div>
+            </section>
+
+            <section class="admin-section">
+              <article class="card toggle-card" id="admin-ads-toggle">
+                <div class="toggle-text">
+                  <h3>Ad placements</h3>
+                  <p>Paste Google AdSense or other ad embed code to show in the ad slots on the site.</p>
+                </div>
+                <div class="toggle-icon" aria-hidden="true">▼</div>
+              </article>
+              <div class="admin-panel-section" id="admin-ads-panel">
+                <h4>Ad placements</h4>
+                <p class="admin-hint">
+                  Paste the full ad snippet (including any <code>&lt;script&gt;</code> tags) from your ad provider.
+                  This will be injected directly into the ad areas on the public site.
+                </p>
+                <form id="admin-ads-form">
+                  <div class="form-row">
+                    <label for="admin-ad-inline-players">Ad above squad / players section</label>
+                    <textarea id="admin-ad-inline-players" rows="4" placeholder="Paste ad embed code here"></textarea>
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-ad-inline-players-media">Ad between players and media sections</label>
+                    <textarea id="admin-ad-inline-players-media" rows="4" placeholder="Paste ad embed code here"></textarea>
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-ad-bottom-main">Ad at bottom of page</label>
+                    <textarea id="admin-ad-bottom-main" rows="4" placeholder="Paste ad embed code here"></textarea>
+                  </div>
+                  <button type="submit" class="btn-primary admin-btn">Save ad code</button>
+                  <p class="admin-hint">
+                    Changes are saved in this browser only and will remain after reload as long as you use the same device.
+                  </p>
+                </form>
+              </div>
+            </section>
+
+            <section class="admin-section">
+              <article class="card toggle-card" id="admin-training-toggle">
+                <div class="toggle-text">
+                  <h3>Training &amp; events</h3>
+                  <p>Add training sessions and club events that appear in the Training section.</p>
+                </div>
+                <div class="toggle-icon" aria-hidden="true">▼</div>
+              </article>
+              <div class="admin-panel-section" id="admin-training-panel">
+                <h4>Training &amp; events</h4>
+                <form id="admin-training-form">
+                  <div class="form-row">
+                    <label for="admin-training-title">Title</label>
+                    <input type="text" id="admin-training-title" placeholder="e.g. Morning training" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-training-date">Date / time</label>
+                    <input type="text" id="admin-training-date" placeholder="e.g. Tue 5 Mar, 10:00 AM" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-training-location">Location</label>
+                    <input type="text" id="admin-training-location" placeholder="e.g. Main training ground" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-training-type">Type</label>
+                    <input type="text" id="admin-training-type" placeholder="Training / Meeting / Event" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-training-notes">Notes (optional)</label>
+                    <input type="text" id="admin-training-notes" placeholder="Short extra info" />
+                  </div>
+                  <button type="submit" class="btn-primary admin-btn">Add training / event</button>
+                </form>
+                <ul class="admin-list" id="admin-training-list"></ul>
+              </div>
+            </section>
+
+            <section class="admin-section">
+              <article class="card toggle-card" id="admin-appearance-toggle">
+                <div class="toggle-text">
+                  <h3>Site appearance</h3>
+                  <p>Change the big background at the top of the site using an image or a solid color.</p>
+                </div>
+                <div class="toggle-icon" aria-hidden="true">▼</div>
+              </article>
+              <div class="admin-panel-section" id="admin-appearance-panel">
+                <h4>Site appearance</h4>
+                <p class="admin-hint">
+                  You can either upload background images or choose solid colors for the hero area, the rest of the
+                  page, and each main section. If you set both, the image will be used and the color will be ignored.
+                </p>
+                <form id="admin-hero-form">
+                  <div class="form-row">
+                    <label for="admin-hero-image">Hero background image</label>
+                    <input type="file" id="admin-hero-image" accept="image/*" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-hero-color">Hero background color</label>
+                    <input type="color" id="admin-hero-color" />
+                  </div>
+                  <button type="submit" class="btn-primary admin-btn">Update hero background</button>
+                </form>
+                <form id="admin-site-bg-form">
+                  <div class="form-row">
+                    <label for="admin-site-bg-image">Site background (below nav)</label>
+                    <input type="file" id="admin-site-bg-image" accept="image/*" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-site-bg-color">Site background color (below nav)</label>
+                    <input type="color" id="admin-site-bg-color" />
+                  </div>
+                  <button type="submit" class="btn-primary admin-btn">Update site background</button>
+                </form>
+                <h5>Section backgrounds</h5>
+                <p class="admin-hint">
+                  Optionally upload different background images or choose colors for each main section.
+                </p>
+                <form id="admin-bg-matches-form">
+                  <div class="form-row">
+                    <label for="admin-bg-matches-image">Matches section</label>
+                    <input type="file" id="admin-bg-matches-image" accept="image/*" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-bg-matches-color">Matches section color</label>
+                    <input type="color" id="admin-bg-matches-color" />
+                  </div>
+                  <button type="submit" class="btn-primary admin-btn">Update matches background</button>
+                </form>
+                <form id="admin-bg-training-form">
+                  <div class="form-row">
+                    <label for="admin-bg-training-image">Training &amp; events section</label>
+                    <input type="file" id="admin-bg-training-image" accept="image/*" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-bg-training-color">Training &amp; events section color</label>
+                    <input type="color" id="admin-bg-training-color" />
+                  </div>
+                  <button type="submit" class="btn-primary admin-btn">Update training background</button>
+                </form>
+                <form id="admin-bg-coaches-form">
+                  <div class="form-row">
+                    <label for="admin-bg-coaches-image">Coaching staff section</label>
+                    <input type="file" id="admin-bg-coaches-image" accept="image/*" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-bg-coaches-color">Coaching staff section color</label>
+                    <input type="color" id="admin-bg-coaches-color" />
+                  </div>
+                  <button type="submit" class="btn-primary admin-btn">Update coaches background</button>
+                </form>
+                <form id="admin-bg-players-form">
+                  <div class="form-row">
+                    <label for="admin-bg-players-image">First team squad section</label>
+                    <input type="file" id="admin-bg-players-image" accept="image/*" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-bg-players-color">First team squad section color</label>
+                    <input type="color" id="admin-bg-players-color" />
+                  </div>
+                  <button type="submit" class="btn-primary admin-btn">Update players background</button>
+                </form>
+                <form id="admin-bg-media-form">
+                  <div class="form-row">
+                    <label for="admin-bg-media-image">Team media section</label>
+                    <input type="file" id="admin-bg-media-image" accept="image/*" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-bg-media-color">Team media section color</label>
+                    <input type="color" id="admin-bg-media-color" />
+                  </div>
+                  <button type="submit" class="btn-primary admin-btn">Update media background</button>
+                </form>
+                <form id="admin-bg-sponsors-form">
+                  <div class="form-row">
+                    <label for="admin-bg-sponsors-image">Club sponsors section</label>
+                    <input type="file" id="admin-bg-sponsors-image" accept="image/*" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-bg-sponsors-color">Club sponsors section color</label>
+                    <input type="color" id="admin-bg-sponsors-color" />
+                  </div>
+                  <button type="submit" class="btn-primary admin-btn">Update sponsors background</button>
+                </form>
+                <form id="admin-bg-social-form">
+                  <div class="form-row">
+                    <label for="admin-bg-social-image">Follow the team section</label>
+                    <input type="file" id="admin-bg-social-image" accept="image/*" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-bg-social-color">Follow the team section color</label>
+                    <input type="color" id="admin-bg-social-color" />
+                  </div>
+                  <button type="submit" class="btn-primary admin-btn">Update social background</button>
+                </form>
+                <p class="admin-hint" id="admin-appearance-status"></p>
+              </div>
+            </section>
+
+            <section class="admin-section">
+              <article class="card toggle-card" id="admin-credentials-toggle">
+                <div class="toggle-text">
+                  <h3>Admin credentials</h3>
+                  <p>Change the username and password used to sign in to this admin area.</p>
+                </div>
+                <div class="toggle-icon" aria-hidden="true">▼</div>
+              </article>
+              <div class="admin-panel-section" id="admin-credentials-panel">
+                <h4>Admin credentials</h4>
+                <p class="admin-hint">
+                  Change the username and password for this admin area. You will use the new details
+                  next time you log in.
+                </p>
+                <form id="admin-credentials-form">
+                  <div class="form-row">
+                    <label for="admin-current-password">Current password</label>
+                    <input type="password" id="admin-current-password" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-new-username">New username</label>
+                    <input type="text" id="admin-new-username" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-new-password">New password</label>
+                    <input type="password" id="admin-new-password" />
+                  </div>
+                  <div class="form-row">
+                    <label for="admin-confirm-password">Confirm new password</label>
+                    <input type="password" id="admin-confirm-password" />
+                  </div>
+                  <button type="submit" class="btn-primary admin-btn">Update login</button>
+                  <p class="admin-error" id="admin-credentials-status"></p>
+                </form>
+              </div>
+            </section>
+
+            <section class="admin-section admin-section-footer">
+              <div class="admin-footer-actions">
+                <button type="button" class="btn-primary admin-btn" id="admin-save">
+                  Save changes
+                </button>
+                <button type="button" class="admin-secondary-btn admin-logout-btn" id="admin-logout">
+                  Log out
+                </button>
+              </div>
+              <p class="admin-hint" id="admin-save-status"></p>
+            </section>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> Your Football Club. All rights reserved.</p>
+  </footer>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
+
